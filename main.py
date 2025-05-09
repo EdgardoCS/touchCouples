@@ -41,25 +41,48 @@ index_options = {"0x": 0,
                  "> 50x": 5}
 
 df["kiss_diff"] = None
+df["hold_diff"] = None
+df["hug_diff"] = None
+
 for i in range(0, len(df)):
-    print(i, index_options[df['ptf_kiss'][i]] - index_options[df['tf_kiss'][i]])
+    # print(i, index_options[df['ptf_kiss'][i]] - index_options[df['tf_kiss'][i]])
     if index_options[df['tf_kiss'][i]] == index_options[df['ptf_kiss'][i]]:
         df.loc[i, "kiss_diff"] = 0
-    elif index_options[df['tf_kiss'][i]] > index_options[df['ptf_kiss'][i]] < 2:
+    if index_options[df['tf_kiss'][i]] > index_options[df['ptf_kiss'][i]]:
         df.loc[i, "kiss_diff"] = 1
-    elif (index_options[df['tf_kiss'][i]] - index_options[df['ptf_kiss'][i]]) >= 2:
+    if (index_options[df['tf_kiss'][i]] - index_options[df['ptf_kiss'][i]]) > 2:
         df.loc[i, "kiss_diff"] = 2
-    elif index_options[df['tf_kiss'][i]] < index_options[df['ptf_kiss'][i]] < 2:
+    if index_options[df['tf_kiss'][i]] < index_options[df['ptf_kiss'][i]]:
         df.loc[i, "kiss_diff"] = -1
-    elif (index_options[df['ptf_kiss'][i]] - index_options[df['tf_kiss'][i]]) >= 2:
+    if (index_options[df['ptf_kiss'][i]] - index_options[df['tf_kiss'][i]]) > 2:
         df.loc[i, "kiss_diff"] = -2
-print(df)
 
-#     if df['tf_hold'][i] == df['ptf_hold'][i]:
-#         kiss_diff[i] = 0
-# value = label_to_value[selected_option]
-#
-# print(df["match"])
+    if index_options[df['tf_hold'][i]] == index_options[df['ptf_hold'][i]]:
+        df.loc[i, "hold_diff"] = 0
+    if index_options[df['tf_hold'][i]] > index_options[df['ptf_hold'][i]]:
+        df.loc[i, "hold_diff"] = 1
+    if (index_options[df['tf_hold'][i]] - index_options[df['ptf_hold'][i]]) > 2:
+        df.loc[i, "hold_diff"] = 2
+    if index_options[df['tf_hold'][i]] < index_options[df['ptf_hold'][i]]:
+        df.loc[i, "hold_diff"] = -1
+    if (index_options[df['ptf_hold'][i]] - index_options[df['tf_hold'][i]]) > 2:
+        df.loc[i, "hold_diff"] = -2
+
+    if index_options[df['tf_hug'][i]] == index_options[df['ptf_hug'][i]]:
+        df.loc[i, "hug_diff"] = 0
+    if index_options[df['tf_hug'][i]] > index_options[df['ptf_hug'][i]]:
+        df.loc[i, "hug_diff"] = 1
+    if (index_options[df['tf_hug'][i]] - index_options[df['ptf_hug'][i]]) > 2:
+        df.loc[i, "hug_diff"] = 2
+    if index_options[df['tf_hug'][i]] < index_options[df['ptf_hug'][i]]:
+        df.loc[i, "hug_diff"] = -1
+    if (index_options[df['ptf_hug'][i]] - index_options[df['tf_hug'][i]]) > 2:
+        df.loc[i, "hug_diff"] = -2
+
+for i in range(0, len(df)):
+    if df["hug_diff"][i] >= 2:
+        print(df["reldur"][i], df["kiss_diff"][i], df["hold_diff"][i])
+
 
 # fig1, axes = plt.subplots(2, 1)
 # fig1.suptitle("OMO15 - Touch frequency kiss last week")
