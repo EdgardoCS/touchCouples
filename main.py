@@ -32,7 +32,7 @@ omo16i2_w2b, pomo16i2_w2b = Desire to touch put arm around shoulder last week - 
 omo17i2_w2b, pomo17i2_w2b = Desire to touch intimate hug last week - anchor/partner 
 """
 
-df = pd.read_csv("source/only_couples_data.csv", delimiter=",")
+df = pd.read_csv("source/only_couples_data.csv", delimiter=";")
 index_options = {"0x": 0,
                  "1-5x": 1,
                  "6-10x": 2,
