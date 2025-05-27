@@ -532,6 +532,10 @@ mvdecode loneliness, mv(-10/-1)
 tab loneliness, m // n = 12 missings
 // hist loneliness
 
+rename (pper1i6_w2b) (ploneliness)
+mvdecode ploneliness, mv(-10/-1)
+tab ploneliness, m // n = 12 missings
+
 **** 5.a/b/c Rename relationship satisfaction, life satisfaction, health index, marital status
 
 rename (sat3_w2b sat6_w2b hlt32_w2b) (relsat lifsat bad_health)
@@ -607,7 +611,7 @@ recode per3i22_w2b per3i24_w2b per3i27_w2b per3i28_w2b per3i29_w2b per3i32_w2b (
 
 * b. calculate sum scores
 
-* Extraversion
+* Extraversion(1)
 egen extr = rowtotal(per3i22_w2b_r per3i26_w2b per3i30_w2b) if per3i22_w2b_r > 0 & per3i26_w2b > 0 & per3i30_w2b > 0
 label variable extr "Extraversion"
 
@@ -623,7 +627,7 @@ label variable consc "conscientiousness"
 egen open = rowtotal(per3i25_w2b per3i29_w2b_r per3i33_w2b) if per3i25_w2b > 0 & per3i29_w2b_r > 0 & per3i33_w2b > 0
 label variable open "Openess"
 
-* Neuroticism
+* Neuroticism(2)
 egen neur = rowtotal(per3i14_w2b per3i4_w2b per3i32_w2b_r) if per3i14_w2b > 0 & per3i4_w2b > 0 & per3i32_w2b_r > 0
 label variable neur "Neuroticism"
 
@@ -639,11 +643,55 @@ sum(neur)
 // hist open
 // hist neur
 
-tab extr, m // n = 26 missings
-tab agree, m // n = 25 missings
-tab consc, m // n = 29 missings
-tab open, m // n = 57 missings
-tab neur, m // n = 24 missings
+// tab extr, m // n = 26 missings
+// tab agree, m // n = 25 missings
+// tab consc, m // n = 29 missings
+// tab open, m // n = 57 missings
+// tab neur, m // n = 24 missings
+
+**** 7. BIG-5 (PARTNER) ******************************************************************
+* a. recode item 22, 27, 24, 28, 29, 32
+recode pper3i22_w2b pper3i24_w2b pper3i27_w2b pper3i28_w2b pper3i29_w2b pper3i32_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pper3i22_w2b_r pper3i24_w2b_r pper3i27_w2b_r pper3i28_w2b_r pper3i29_w2b_r pper3i32_w2b_r) 
+
+* b. calculate sum scores
+
+* Extraversion(1)
+egen pextr = rowtotal(pper3i22_w2b_r pper3i26_w2b pper3i30_w2b) if pper3i22_w2b_r > 0 & pper3i26_w2b > 0 & pper3i30_w2b > 0
+label variable pextr "Extraversion"
+
+* Agreeableness
+egen pagree = rowtotal(pper3i23_w2b pper3i7_w2b pper3i27_w2b_r) if pper3i23_w2b > 0 & pper3i7_w2b > 0 & pper3i27_w2b_r > 0
+label variable pagree "Agreeableness"
+
+* conscientiousness
+egen pconsc = rowtotal(pper3i24_w2b_r pper3i28_w2b_r pper3i31_w2b) if pper3i24_w2b_r > 0 & pper3i28_w2b_r > 0 & pper3i31_w2b > 0
+label variable pconsc "conscientiousness"
+
+* Openess
+egen popen = rowtotal(pper3i25_w2b pper3i29_w2b_r pper3i33_w2b) if pper3i25_w2b > 0 & pper3i29_w2b_r > 0 & pper3i33_w2b > 0
+label variable popen "Openess"
+
+* Neuroticism(2)
+egen pneur = rowtotal(pper3i14_w2b pper3i4_w2b pper3i32_w2b_r) if pper3i14_w2b > 0 & pper3i4_w2b > 0 & pper3i32_w2b_r > 0
+label variable pneur "Neuroticism"
+
+sum(pextr)
+sum(pagree)
+sum(pconsc)
+sum(popen)
+sum(pneur)
+
+// hist extr
+// hist agree
+// hist consc
+// hist open
+// hist neur
+
+// tab extr, m // n = 26 missings
+// tab agree, m // n = 25 missings
+// tab consc, m // n = 29 missings
+// tab open, m // n = 57 missings
+// tab neur, m // n = 24 missings
 
 **** 8. Religion ******************************************************************
 gen god = sd36_w2b if sd36_w2b > -1 // "Importance of God", missings = 13
@@ -660,7 +708,7 @@ drop *_w1a
 drop *_w1b
 drop *_w2a
 
-// outsheet age page sex psex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b using outputdata.csv, comma
+outsheet age page sex psex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur pextr pagree pconsc popen pneur using outputdata.csv, comma
 
-* cd $path_data_all
-* save W2B_com_t.dta, replace
+cd $path_data_all
+save W2B_com_t.dta, replace
