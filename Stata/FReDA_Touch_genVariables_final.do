@@ -14,17 +14,11 @@
 * Set path, upload data
 
 clear all
-global path_data_all `""C:\Users\silva\Documents\FReDA\OutputEN""'
+global path_data_all `""C:\Users\silva\OneDrive - Friedrich-Schiller-Universität Jena\FReDA\OutputEN""'
 
 cd $path_data_all
 use W2B_com.dta, clear 
 
-// merged data set: contains variables from all waves (W1R, W1A, W1B, W2A, W2B) 
-// but only the cases that took part at W2B
-
-*-------------------------------------------------------------------------------
-
-* log using C:\Users\silva\Documents\FReDA\OutputEN\NewLog.log, replace
 
 **** Analyse data for relationship status
 
@@ -46,9 +40,6 @@ drop if pomo15i1_w2b < 1 | pomo16i1_w2b < 1 | pomo17i1_w2b < 1
 drop if pomo15i1_w2b == . | pomo16i1_w2b == . | pomo17i1_w2b == .
 
 * -> 7116 participants left
-
-// * delete non-binary
-// drop if sex_w2b == 3
 
 *-------------------------------------------------------------------------------
 **** Explore touch data
@@ -82,16 +73,6 @@ tab pomo17i1_w2b, m
 tab pomo17i2_w2b, m
 
 
-*  Bar graphs divided by sex
-
-// graph hbar (count), over(omo15i1_w2b) over(sex_w2b)
-// graph hbar (count), over(pomo15i1_w2b) over(sex_w2b)
-
-// graph bar (count), over(omo16i1_w2b) over(sex_w2b)
-// graph bar (count), over(omo17i1_w2b) over(sex_w2b)
-
-
-*-------------------------------------------------------------------------------
 *-------------------------------------------------------------------------------
 * Generate new variables and show descriptives
 *-------------------------------------------------------------------------------
@@ -127,7 +108,6 @@ tab age_class, m // n = 16 missings
 
 drop if age < 18 | age > 51
 
-// histogram age, width(1) start(18) xtitle("Age") ytitle("Frequency") title("Histogram of Age")
 
 **** 2. Sex ********************************************************************
 *        -> information from register if data was missing (n=1) -> male
@@ -147,22 +127,6 @@ label value psex sexl
 
 tab psex, m
 
-**** 3. Education **************************************************************
-
-* a. Highest school dregree 
-tab school_w2b, m // n = 9 missings
-
-* b. Vocational training/study 
-tab voctrain_w2b, m // n = 36 missings
-
-* c. Years of education
-tab educy_w2b, m // n = 44 missings
-
-* d. ISCED-11, International Standard Classification of Education
-tab isced11_w2b, m // n = 203 missings
-gen isced11 = isced11_w2b
-label variable isced11 "International Standard Classification of Education (ISCED-11), anchor "
-mvdecode isced11, mv(-10/-1)
 
 **** 4. Work & employment ******************************************************
 * Anchor data *
@@ -354,29 +318,6 @@ label variable nkidsliv_class "Number of all children living with subject (class
 
 tab nkidsliv_class, m
 
-
-* Partner data *
-
-
-
-**** 6. Parenthood *************************************************************
-// appears not totally correct??
-
-gen parent = .
-replace parent = 1 if nkids_w2b > 0
-replace parent = 2 if nkids_w2b == 0 
-label variable parent "Parenthood"
-label define parentl 1 "Parent" 2 "Childless"
-label values parent parentl
-
-tab parent, m // n = 7 missings // 2,693 childless // 4,400 parents
-
-**** 7. Age of youngest child -> approximated **********************************
-tab ykage_w2b, m // n = 92 missings // n = 2,990 not applicable
-gen ykage = ykage_w2b
-mvdecode ykage, mv(-10/-1) // define missing values
-tab ykage, m
-
 * generate age classes
 
 recode ykage_w2b (0 1 = 1 "0-1") (2/5=2 "2-5") (6/13=3 "6-13") (14/17=4 "14-17") (18/50=5 "18+") (else=.), gen(ykage_class_w2b)
@@ -413,8 +354,6 @@ label variable confm "Conflict management index (W2A)"
 
 tab confm, m // n = 274 missings
 
-
-
 * Partner data *
 * a. recode reverse items
 recode ppa17i4_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(ppa17i4_w2a_r)
@@ -443,7 +382,6 @@ label variable pconfm "Conflict management index (W2A)"
 tab pconfm, m // n = 274 missings
 
 **** 10. Thought about possible separation *************************************
-
 
 *-------------------------------------------------------------------------------
 * C. Psych variables 
@@ -509,6 +447,13 @@ egen depr = rowtotal(per21i2_w2b per21i4_w2b per21i5_w2b) if per21i2_w2b > 0 & p
 label variable depr "Depression total score W2B (3 items)"
 tab depr, m // n = 11 missings
 sum depr if depr > 0
+**** 2. Partner ***************************************************
+
+
+egen pdepr = rowtotal(pper21i2_w2b pper21i4_w2b pper21i5_w2b) if pper21i2_w2b > 0 & pper21i4_w2b > 0 & pper21i5_w2b > 0 // exclude missings
+label variable pdepr "Depression total score W2B (3 items)"
+tab pdepr, m // n = 11 missings
+sum pdepr if pdepr > 0
 
 **** 3. Self esteem ************************************************************
 *       -> mean of 3 items from W2B
@@ -524,6 +469,19 @@ label variable self "Self esteem W2B (3 items)"
 
 tab self, m // n = 43 missings 
 sum self if self > 0
+**** 3. Partner ************************************************************
+
+* a. recode Item 1 "Manchmal denke ich, dass ich wertlos bin."
+recode pper1i2_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pper1i2_w2b_r)
+label variable pper1i2_w2b_r "[recoded] Persönliche Wahrnehmung: Wertlos"
+
+* b. calculate sum score
+egen pself = rowtotal(pper1i2_w2b_r pper1i7 pper1i13) if pper1i2_w2b_r > 0 & pper1i7 > 0 & pper1i13 > 0
+// exclude missings
+label variable pself "Self esteem W2B (3 items)"
+
+tab pself, m // n = 43 missings 
+sum pself if pself > 0
 
 **** 4. Loneliness *************************************************************
 
@@ -554,10 +512,10 @@ label variable married "Marital status"
 label define marriedl 1 "Married" 2 "Not married"
 label values married marriedl
 
-tab married, m  // n = 7 missings
-tab lifsat, m  	// n = 7 missings
-tab relsat, m 	// n = 8 missings
-tab health, m 	// n = 3 missings
+// tab married, m  // n = 7 missings
+// tab lifsat, m  	// n = 7 missings
+// tab relsat, m 	// n = 8 missings
+// tab health, m 	// n = 3 missings
 
 sum relsat if relsat > -1
 sum lifsat if lifsat > -1
@@ -605,6 +563,30 @@ label variable consv "Conservative attitudes about family life W2B (7 items)"
 sum consv if consv > -1
 tab consv, m // n = 75 missings
 
+
+**** 6. consvervative consvitudes PARTNER *************************************************
+*       -> sum score of 7 items from W2B
+
+* a. recode item 4, 5
+recode pval1i14_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pval1i14_w2b_r)
+label variable pval1i14_w2b_r "[recoded] Werte: Mutter-Kind-Beziehung bei berufstätiger Mutter"
+
+recode pval1i17_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pval1i17_w2b_r)
+label variable pval1i17_w2b_r "[recoded] Werte: Vater-Kind-Beziehung bei berufstätigem Vater"
+
+* b. define values
+label define pconsvl -1 "Weiß nicht" -2 "Keine Antwort" -3 "Trifft nicht zu (Filter)" -4 "Filterfehler/falsche Eingabe" -5 "Inkonsistenter Wert" -6 "Unlesbare Antwort" -7 "Unvollständige Daten"	-8 "Trifft nicht zu (Antwortoption)" -9 "Unzulässige (Mehrfach-)Antwort" -10 "Designbedingter Missing" 1 "Stimme überhaupt nicht zu" 2 "Stimme eher nicht zu" 3 "Weder noch" 4 "Stimme eher zu" 5 "Stimme voll zu"
+label values pval1i14_w2b_r pconsvl
+label values pval1i17_w2b_r pconsvl
+
+* c. calculate sum score, if no value is missing
+egen pconsv = rowtotal(pval1i5_w2b pval1i15_w2b pval1i16_w2b pval1i14_w2b_r pval1i17_w2b_r pval2i5_w2b pval2i2_w2b) if pval1i5_w2b > 0 & pval1i15_w2b > 0 & pval1i16_w2b > 0 & pval1i14_w2b_r > 0 & pval1i17_w2b_r > 0 & pval2i5_w2b > 0 & pval2i2_w2b  > 0 // exclude missings
+label variable pconsv "Conservative attitudes about family life W2B (7 items)"
+
+// hist consv
+//sum consv if consv > -1
+//tab consv, m // n = 75 missings
+
 **** 7. BIG-5 ******************************************************************
 * a. recode item 22, 27, 24, 28, 29, 32
 recode per3i22_w2b per3i24_w2b per3i27_w2b per3i28_w2b per3i29_w2b per3i32_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(per3i22_w2b_r per3i24_w2b_r per3i27_w2b_r per3i28_w2b_r per3i29_w2b_r per3i32_w2b_r) 
@@ -636,18 +618,6 @@ sum(agree)
 sum(consc)
 sum(open)
 sum(neur)
-
-// hist extr
-// hist agree
-// hist consc
-// hist open
-// hist neur
-
-// tab extr, m // n = 26 missings
-// tab agree, m // n = 25 missings
-// tab consc, m // n = 29 missings
-// tab open, m // n = 57 missings
-// tab neur, m // n = 24 missings
 
 **** 7. BIG-5 (PARTNER) ******************************************************************
 * a. recode item 22, 27, 24, 28, 29, 32
@@ -697,6 +667,10 @@ sum(pneur)
 gen god = sd36_w2b if sd36_w2b > -1 // "Importance of God", missings = 13
 label variable god "Importance of God"
 
+**** 8. Partner ******************************************************************
+gen pgod = psd36_w2b if psd36_w2b > -1 // "Importance of God", missings = 13
+label variable pgod "Importance of God"
+
 *-------------------------------------------------------------------------------
 **** Save separately (only cases with answers to the touch frequency questions)
 *-------------------------------------------------------------------------------
@@ -708,7 +682,7 @@ drop *_w1a
 drop *_w1b
 drop *_w2a
 
-outsheet age page sex psex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur pextr pagree pconsc popen pneur using outputdata.csv, comma
+outsheet age page workst pworkst sex psex samesex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur depr pdepr self pself health phealth consv god pgod pextr pagree pconsc popen pneur east peast degurba pdegurba married pconsv using outputdata.csv, comma
 
 cd $path_data_all
 save W2B_com_t.dta, replace
