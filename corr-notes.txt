@@ -1,0 +1,109 @@
+
+"Agreement" group = There is no reported Deprivation or Saturation of Touch between the couple
+"Disagreement" group = There is Deprivation and Saturation of Touch between the couple
+"Mixed" group = Couple reported either Deprivation or Saturation
+
+
+--- SOCIODEMOGRAPHIC CHARACTERISTICS ---
+
+Age 
+Age has a negative correlation with Frequency of Touch and Wish for Touch for both Anchor and Partner for all three groups, although interestingly r is lower for the "Disagreement" group. 
+Agreement group, Anchor (r= -0,26), Partner (r = -0,30) | Disagreement group, Anchor (r= -0,13), Partner (r = -0,12) | Mixed group, Anchor (r= -0,24), Partner (r = -0,24) 
+
+Work Status 
+Work status has a positive correlation with Frequency of Touch and Wish for Touch for both Anchor (r = 0,12) and Partner (r = 0,11), only in the "Agreement" group 
+
+East / Urbanization 
+Both East and Urbanization variables does not have a significant correlation with touch (r below 0,10) 
+
+
+--- PERSONALITY CHARACTERISTICS ---
+
+Extraversion 
+Extraversion has a positive correlation with Frequency of Touch (r = 0,10) and Wish for Touch (r = 0,10) for Partner only, in the "Agreement" group. 
+
+Conscientiousness / Religiosity 
+None of the above have a significant correlation with touch (r below 0,10) 
+
+Agreeableness 
+Agreeableness has a positive correlation with Frequency of Touch (r = 0,13) and Wish for Touch (r = 0,13) for Anchor, and for Partner (r = 0,15, both) in the "Agreement" group. 
+It also has a positive correlation with Frequency of Touch (r = 0,14) and Wish for Touch (r = 0,13) for Partner in the  "Disagreement" group. The same can be said related to the "Mixed" group (r = 0,15, r = 0,14). 
+
+Openness 
+Partner Openness has a positive correlation with Frequency of Touch and Wish for Touch the Agreement group (r = 0,13). 
+It also has a positive correlation with Frequency of Touch (r = 0,11) for Partner in the "Mixed" group. 
+
+Neuroticism 
+Anchor Neuroticism has a positive correlation with Partner Deprivation of Touch (r = 0,11) in the "Disagreement" group 
+Partner Neuroticism has a positive correlation with Partner Deprivation of Touch for the "Mixed" group (r = 0,13) 
+
+Conservationism 
+Partner Conservationism has a positive correlation with Partner Deprivation of Touch for the "Disagreement" group (r = 0,10) 
+
+--- WELLBEING CHARACTERISTICS ---
+
+Depressiveness 
+For "Agreement" group, Depressiveness has no significant correlation. 
+For "Disagreement" group, Depressiveness has a positive correlation with Deprivation of Touch for Anchor (r = 0,18) and Partner (r = 0,17). 
+For "Mixed" group, it also has a positive correlation with Deprivation of Touch only for Partner (r = 0,16). 
+
+Loneliness 
+For "Agreement" group, Loneliness has no significant correlation. 
+For "Disagreement" group, Anchor Loneliness has a negative correlation with Frequency of Touch (r = -0,13), as well as Partner Loneliness (r = -0,20), it also has a positive correlation with Deprivation of Touch for Anchor (r = 0,22) and Partner (r = 0,17). 
+For the "Mixed" group, the same can be said about the negative correlation with Frequency of Touch (r = -0,16) and the positive correlation with Deprivation of Touch (r = 0,19). 
+
+Self-esteem 
+Anchor Self-esteem has a negative correlation with Deprivation of Touch (r = -0,15) for the "Disagreement" group. 
+The same can be said about Partner Self-esteem in the "Mixed" group (r = -0,12). 
+
+Life Satisfaction 
+"Agreement" group, Life Satisfaction has a positive correlation for Frequency and Wish for Touch for both Anchor (r = 0,10) and Partner (r = 0,13). 
+"Disagreement" group, Anchor Life Satisfaction has a positive correlation with Anchor and Partner Frequency of Touch (r = 0,12), and a negative correlation with Anchor Deprivation of Touch (r = -0,13). 
+Partner Life Satisfaction has a positive correlation with Partner Frequency of Touch (r = 0,12) and a negative correlation with Partner Deprivation of Touch (r = -0,10). 
+"Mixed" group, Life Satisfaction has a positive correlation with Frequency of Touch for Anchor (r = 0,11), and Partner (r = 0,18). 
+It also has a negative correlation with Deprivation of Touch for Partner (r = -0,15)
+
+Health 
+"Agreement" group, Health has a positive correlation for Frequency and Wish for Touch for Partner (r = 0,11). 
+"Disagreement" group, Partner Health has a positive correlation with Partner Frequency of Touch (r = 0,11). 
+"Mixed" group, Partner Health has a positive correlation with Frequency of Touch for Partner (r = 0,10) and has a negative correlation with Deprivation of Touch for Partner (r = -0,10) 
+
+--- RELATIONSHIP CHARACTERISTICS ---
+
+Same sex relationship and Age difference have no significant correlation with Touch 
+
+Relationship Length 
+For "Agreement" group, Relationship Length has a negative correlation with Frequency (r = -0,33) and Wish for Touch (r = -0,30) for both Anchor and Partner 
+For "Disagreement" group, Relationship Length has a negative correlation with Frequency (r = -0,12) and Wish for Touch (r = -0,14) for both Anchor and Partner 
+For "Mixed" group, Relationship Length has a negative correlation with Frequency (r = -0,23) and Wish for Touch (r = -0,23) for both Anchor and Partner 
+
+Married 
+For "Agreement" group, being married has a negative correlation with Frequency (r = -0,23) and Wish for Touch (r = -0,21) for both Anchor and Partner 
+For "Disagreement" group, being married has a negative correlation with Partner Wish for Touch (r = -0,10) 
+For "Agreement" group, being married has a negative correlation with Frequency (r = -0,15) and Wish for Touch (r = -0,17) for both Anchor and Partner 
+
+Cohabitation 
+Cohabitation has a positive correlation with Frequency and Wish for Touch in the "Agreement" group
+For the "Disagreement" group, it has a negative correlation with Frequency of Touch for Anchor (r = -0,12)
+It has also a positive correlation with Deprivation of Touch for both Anchor (r = 0,25) and Partner (r = 0,20) 
+For the "Mixed" group, it has a positive correlation with Frequency and Wish for Touch with Partner (r = 0,11, both)
+
+Kids
+Having kids in the household has a negative correlation with Frequency and Wish for Touch in both "Agreement" (r = -0,25 (mean)) and "Mixed" (r = -0,22 (mean)) groups 
+For the "Disagreement" group, there is a negative correlation between Kids and Partner Frequency of Touch (r = -0,12)
+Also, it has a positive correlation with Saturation of touch for Anchor (r = 0,10) and Partner (r = 0,13)
+
+Communication Quality, Relationship Satisfaction, and Conflict Management have positive correlation with Frequency and Wish for touch for all groups
+
+Communication Quality 
+For "Disagreement" group, there is a negative correlation between Communication Quality and Saturation of Touch for Anchor (r = -0,12) and Partner (r = -0,11)
+For the "Mixed" group, it has a negative correlation with Deprivation and Saturation of Touch for both Anchor (r = -0,10) and Partner (r = -0,13)
+
+Relationship Satisfaction 
+"Disagreement" group, it has a negative correlation with Deprivation and Saturation for Anchor (r = -0,11) and Partner (r = -0,10), 
+except with Partner Deprivation (r = -0,09)
+For the "Mixed" group, it has a negative correlation with Deprivation of touch for Anchor (r = -0,14) and Partner (r = -0,20)
+
+Conflict Management 
+Partner Conflict Management has a negative correlation with Partner Deprivation of Touch (r = -0,11) for the "Disagreement" group
+For the "Mixed" group, it does not have a significant correlation with Deprivation nor Saturation of touch
