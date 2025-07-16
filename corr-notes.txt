@@ -107,3 +107,9 @@ For the "Mixed" group, it has a negative correlation with Deprivation of touch f
 Conflict Management 
 Partner Conflict Management has a negative correlation with Partner Deprivation of Touch (r = -0,11) for the "Disagreement" group
 For the "Mixed" group, it does not have a significant correlation with Deprivation nor Saturation of touch
+
+
+
+
+----- REGRESSION NOTES -----
+
