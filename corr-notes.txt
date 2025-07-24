@@ -113,3 +113,41 @@ For the "Mixed" group, it does not have a significant correlation with Deprivati
 
 ----- REGRESSION NOTES -----
 
+Ordinary Logistic Regression (OLR) 
+
+Group Agreement == Perception of touch (Frequency and Wish) is in sync, they both want what they get
+Frequency of Touch => The same values goes for "Wish for Touch"
+(+)  Partner Work Status (**), Anchor Extraversion (***), Anchor Agreeableness (***), Partner Extraversion (**), Partner Agreeableness (*), Anchor Depressiveness (**), Anchor Communication Quality (***), Anchor Relationship Satisfaction (***), Partner Communication Quality (**), Partner Relationship Satisfaction (***)
+(-)  Anchor Conscientiousness (*), Partner Self-esteem (**), Relationship Length (***)
+
+Group Disagreement ==  Perception of touch (Saturation and Deprivation) is in sync, they both are equally saturated or deprived
+Frequency of Touch
+(+)  Anchor Extraversion(**), Partner Openness(**), Partner Conservatism(**), Cohabitation(***), Anchor Relationship Satisfaction(***)
+(-)  Anchor Conscientiousness(***), Anchor Loneliness(**), Anchor Health(*), Partner Life Satisfaction(*)
+Wish for Touch
+(+)  Anchor Extraversion(*), Partner Openness(*), Anchor Depressiveness(*), Anchor Relationship Satisfaction (*)
+(-)  None
+Deprivation of Touch
+(+)  Anchor Loneliness(**)
+(-)  Cohabitation (**), Partner Conflict Management(*)
+Saturation of Touch 
+(+)  Anchor Age(**), Anchor Extraversion(*), Partner Conservatism(*)
+(-)  Partner Age(**), Partner Agreeableness(**), Anchor Depressiveness(*), Kids(*)
+
+Group Mixed == Mixed Perception of Saturation and Deprivation, one of the members is either Saturated or Deprived, but not both at the same time
+Frequency of Touch
+(+)  Anchor Extraversion(*), Anchor Openness(**), Anchor Depressiveness(**), Partner Depressiveness(*), Cohabitation(***), Anchor Communication Quality(***), Anchor Relationship Satisfaction(***), Partner Communication Quality(**) 
+(-)  Relationship Length(***)
+Wish for Touch
+
+
+
+
+
+
+
+
+
+
+
+

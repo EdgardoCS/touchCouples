@@ -69,3 +69,6 @@ venv.bak/
 
 # STATA files
 *.dta
+
+# Temp files
+~$*

@@ -1,0 +1,256 @@
+                                OLS Regression Results                               
+=====================================================================================
+Dep. Variable:     Anchor Frequency of Touch   R-squared:                       0.271
+Model:                                   OLS   Adj. R-squared:                  0.252
+Method:                        Least Squares   F-statistic:                     14.16
+Date:                       Thu, 24 Jul 2025   Prob (F-statistic):           1.04e-70
+Time:                               12:10:06   Log-Likelihood:                -1956.4
+No. Observations:                       1407   AIC:                             3987.
+Df Residuals:                           1370   BIC:                             4181.
+Df Model:                                 36                                         
+Covariance Type:                   nonrobust                                         
+=====================================================================================================
+                                        coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------
+const                                -1.4572      0.700     -2.081      0.038      -2.831      -0.083
+Anchor Difference of Touch         4.687e-15   1.67e-15      2.799      0.005     1.4e-15    7.97e-15
+Partner Difference of Touch        1.212e-14   4.32e-15      2.808      0.005    3.66e-15    2.06e-14
+Anchor Age                           -0.0043      0.007     -0.650      0.516      -0.017       0.009
+Anchor Work Status                    0.0755      0.046      1.634      0.103      -0.015       0.166
+Partner Age                          -0.0080      0.006     -1.382      0.167      -0.019       0.003
+Partner Work Status                  -0.0006      0.048     -0.013      0.990      -0.094       0.093
+Anchor Extraversion                   0.0338      0.014      2.346      0.019       0.006       0.062
+Anchor Agreeableness                  0.0617      0.015      4.231      0.000       0.033       0.090
+Anchor Conscientiousness             -0.0055      0.014     -0.407      0.684      -0.032       0.021
+Anchor Openness                       0.0062      0.013      0.488      0.625      -0.019       0.031
+Anchor Neuroticism                    0.0038      0.017      0.225      0.822      -0.029       0.037
+Anchor Conservatism                  -0.0035      0.006     -0.597      0.551      -0.015       0.008
+Partner Extraversion                  0.0273      0.014      2.008      0.045       0.001       0.054
+Partner Agreeableness                 0.0088      0.015      0.603      0.547      -0.020       0.037
+Partner Conscientiousness            -0.0107      0.013     -0.791      0.429      -0.037       0.016
+Partner Openness                      0.0054      0.013      0.425      0.671      -0.020       0.030
+Partner Neuroticism                   0.0001      0.017      0.007      0.994      -0.033       0.033
+Partner Conservatism                 -0.0022      0.006     -0.387      0.699      -0.014       0.009
+Anchor Depressiveness                 0.0612      0.025      2.475      0.013       0.013       0.110
+Anchor Loneliness                    -0.0143      0.034     -0.422      0.673      -0.081       0.052
+Anchor Self-esteem                   -0.0181      0.016     -1.134      0.257      -0.049       0.013
+Anchor Life Satisfaction              0.0167      0.022      0.760      0.448      -0.026       0.060
+Anchor Health                         0.0303      0.042      0.721      0.471      -0.052       0.113
+Partner Depressiveness                0.0102      0.025      0.405      0.685      -0.039       0.060
+Partner Loneliness                   -0.0007      0.037     -0.018      0.985      -0.073       0.072
+Partner Self-esteem                  -0.0404      0.017     -2.431      0.015      -0.073      -0.008
+Partner Life Satisfaction             0.0225      0.023      0.974      0.330      -0.023       0.068
+Partner Health                       -0.0167      0.040     -0.415      0.678      -0.095       0.062
+Relationship Length                  -0.1032      0.033     -3.096      0.002      -0.169      -0.038
+Married                              -0.1311      0.074     -1.767      0.077      -0.277       0.014
+Cohabitation                          0.3113      0.111      2.807      0.005       0.094       0.529
+Kids                                 -0.0543      0.034     -1.578      0.115      -0.122       0.013
+Anchor Communication Quality          0.0746      0.012      6.289      0.000       0.051       0.098
+Anchor Relationship Satisfaction      0.1582      0.028      5.635      0.000       0.103       0.213
+Anchor Conflict Management           -0.0052      0.012     -0.439      0.661      -0.029       0.018
+Partner Communication Quality         0.0406      0.013      3.182      0.001       0.016       0.066
+Partner Relationship Satisfaction     0.0350      0.027      1.281      0.200      -0.019       0.089
+Partner Conflict Management          -0.0116      0.012     -0.953      0.341      -0.035       0.012
+==============================================================================
+Omnibus:                       28.412   Durbin-Watson:                   2.034
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               22.201
+Skew:                          -0.221   Prob(JB):                     1.51e-05
+Kurtosis:                       2.571   Cond. No.                     1.01e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 9.79e-26. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+                                OLS Regression Results                                
+======================================================================================
+Dep. Variable:     Partner Frequency of Touch   R-squared:                       0.255
+Model:                                    OLS   Adj. R-squared:                  0.235
+Method:                         Least Squares   F-statistic:                     13.01
+Date:                        Thu, 24 Jul 2025   Prob (F-statistic):           1.65e-64
+Time:                                12:10:06   Log-Likelihood:                -1983.8
+No. Observations:                        1407   AIC:                             4042.
+Df Residuals:                            1370   BIC:                             4236.
+Df Model:                                  36                                         
+Covariance Type:                    nonrobust                                         
+=====================================================================================================
+                                        coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------
+const                                -1.4674      0.714     -2.055      0.040      -2.868      -0.067
+Anchor Difference of Touch         2.058e-15   1.71e-15      1.205      0.228   -1.29e-15    5.41e-15
+Partner Difference of Touch        5.321e-15    4.4e-15      1.209      0.227   -3.32e-15     1.4e-14
+Anchor Age                            0.0018      0.007      0.262      0.793      -0.012       0.015
+Anchor Work Status                    0.0245      0.047      0.519      0.604      -0.068       0.117
+Partner Age                          -0.0142      0.006     -2.407      0.016      -0.026      -0.003
+Partner Work Status                   0.0512      0.049      1.050      0.294      -0.044       0.147
+Anchor Extraversion                   0.0358      0.015      2.433      0.015       0.007       0.065
+Anchor Agreeableness                  0.0163      0.015      1.094      0.274      -0.013       0.045
+Anchor Conscientiousness              0.0149      0.014      1.083      0.279      -0.012       0.042
+Anchor Openness                      -0.0080      0.013     -0.615      0.539      -0.033       0.017
+Anchor Neuroticism                    0.0095      0.017      0.554      0.579      -0.024       0.043
+Anchor Conservatism                   0.0113      0.006      1.892      0.059      -0.000       0.023
+Partner Extraversion                  0.0239      0.014      1.724      0.085      -0.003       0.051
+Partner Agreeableness                 0.0278      0.015      1.874      0.061      -0.001       0.057
+Partner Conscientiousness            -0.0013      0.014     -0.098      0.922      -0.028       0.026
+Partner Openness                      0.0080      0.013      0.615      0.539      -0.017       0.033
+Partner Neuroticism                  -0.0286      0.017     -1.666      0.096      -0.062       0.005
+Partner Conservatism                 -0.0130      0.006     -2.197      0.028      -0.025      -0.001
+Anchor Depressiveness                 0.0240      0.025      0.952      0.341      -0.025       0.074
+Anchor Loneliness                     0.0032      0.035      0.093      0.926      -0.065       0.071
+Anchor Self-esteem                    0.0223      0.016      1.372      0.170      -0.010       0.054
+Anchor Life Satisfaction             -0.0326      0.022     -1.449      0.148      -0.077       0.012
+Anchor Health                         0.0021      0.043      0.048      0.961      -0.082       0.086
+Partner Depressiveness                0.0913      0.026      3.562      0.000       0.041       0.142
+Partner Loneliness                   -0.0192      0.038     -0.510      0.610      -0.093       0.055
+Partner Self-esteem                  -0.0186      0.017     -1.101      0.271      -0.052       0.015
+Partner Life Satisfaction             0.0314      0.024      1.334      0.182      -0.015       0.078
+Partner Health                        0.0300      0.041      0.733      0.464      -0.050       0.110
+Relationship Length                  -0.1148      0.034     -3.376      0.001      -0.181      -0.048
+Married                              -0.0993      0.076     -1.312      0.190      -0.248       0.049
+Cohabitation                          0.1509      0.113      1.334      0.182      -0.071       0.373
+Kids                                 -0.0490      0.035     -1.395      0.163      -0.118       0.020
+Anchor Communication Quality          0.0373      0.012      3.082      0.002       0.014       0.061
+Anchor Relationship Satisfaction      0.0366      0.029      1.279      0.201      -0.020       0.093
+Anchor Conflict Management           -0.0148      0.012     -1.217      0.224      -0.039       0.009
+Partner Communication Quality         0.0778      0.013      5.980      0.000       0.052       0.103
+Partner Relationship Satisfaction     0.1217      0.028      4.366      0.000       0.067       0.176
+Partner Conflict Management          -0.0018      0.012     -0.144      0.886      -0.026       0.023
+==============================================================================
+Omnibus:                       22.774   Durbin-Watson:                   1.919
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.253
+Skew:                          -0.198   Prob(JB):                     0.000109
+Kurtosis:                       2.607   Cond. No.                     1.01e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 9.79e-26. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+                              OLS Regression Results                             
+=================================================================================
+Dep. Variable:     Anchor Wish for Touch   R-squared:                       0.271
+Model:                               OLS   Adj. R-squared:                  0.252
+Method:                    Least Squares   F-statistic:                     14.16
+Date:                   Thu, 24 Jul 2025   Prob (F-statistic):           1.04e-70
+Time:                           12:10:06   Log-Likelihood:                -1956.4
+No. Observations:                   1407   AIC:                             3987.
+Df Residuals:                       1370   BIC:                             4181.
+Df Model:                             36                                         
+Covariance Type:               nonrobust                                         
+=====================================================================================================
+                                        coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------
+const                                -1.4572      0.700     -2.081      0.038      -2.831      -0.083
+Anchor Difference of Touch         4.687e-15   1.67e-15      2.799      0.005     1.4e-15    7.97e-15
+Partner Difference of Touch        1.212e-14   4.32e-15      2.808      0.005    3.66e-15    2.06e-14
+Anchor Age                           -0.0043      0.007     -0.650      0.516      -0.017       0.009
+Anchor Work Status                    0.0755      0.046      1.634      0.103      -0.015       0.166
+Partner Age                          -0.0080      0.006     -1.382      0.167      -0.019       0.003
+Partner Work Status                  -0.0006      0.048     -0.013      0.990      -0.094       0.093
+Anchor Extraversion                   0.0338      0.014      2.346      0.019       0.006       0.062
+Anchor Agreeableness                  0.0617      0.015      4.231      0.000       0.033       0.090
+Anchor Conscientiousness             -0.0055      0.014     -0.407      0.684      -0.032       0.021
+Anchor Openness                       0.0062      0.013      0.488      0.625      -0.019       0.031
+Anchor Neuroticism                    0.0038      0.017      0.225      0.822      -0.029       0.037
+Anchor Conservatism                  -0.0035      0.006     -0.597      0.551      -0.015       0.008
+Partner Extraversion                  0.0273      0.014      2.008      0.045       0.001       0.054
+Partner Agreeableness                 0.0088      0.015      0.603      0.547      -0.020       0.037
+Partner Conscientiousness            -0.0107      0.013     -0.791      0.429      -0.037       0.016
+Partner Openness                      0.0054      0.013      0.425      0.671      -0.020       0.030
+Partner Neuroticism                   0.0001      0.017      0.007      0.994      -0.033       0.033
+Partner Conservatism                 -0.0022      0.006     -0.387      0.699      -0.014       0.009
+Anchor Depressiveness                 0.0612      0.025      2.475      0.013       0.013       0.110
+Anchor Loneliness                    -0.0143      0.034     -0.422      0.673      -0.081       0.052
+Anchor Self-esteem                   -0.0181      0.016     -1.134      0.257      -0.049       0.013
+Anchor Life Satisfaction              0.0167      0.022      0.760      0.448      -0.026       0.060
+Anchor Health                         0.0303      0.042      0.721      0.471      -0.052       0.113
+Partner Depressiveness                0.0102      0.025      0.405      0.685      -0.039       0.060
+Partner Loneliness                   -0.0007      0.037     -0.018      0.985      -0.073       0.072
+Partner Self-esteem                  -0.0404      0.017     -2.431      0.015      -0.073      -0.008
+Partner Life Satisfaction             0.0225      0.023      0.974      0.330      -0.023       0.068
+Partner Health                       -0.0167      0.040     -0.415      0.678      -0.095       0.062
+Relationship Length                  -0.1032      0.033     -3.096      0.002      -0.169      -0.038
+Married                              -0.1311      0.074     -1.767      0.077      -0.277       0.014
+Cohabitation                          0.3113      0.111      2.807      0.005       0.094       0.529
+Kids                                 -0.0543      0.034     -1.578      0.115      -0.122       0.013
+Anchor Communication Quality          0.0746      0.012      6.289      0.000       0.051       0.098
+Anchor Relationship Satisfaction      0.1582      0.028      5.635      0.000       0.103       0.213
+Anchor Conflict Management           -0.0052      0.012     -0.439      0.661      -0.029       0.018
+Partner Communication Quality         0.0406      0.013      3.182      0.001       0.016       0.066
+Partner Relationship Satisfaction     0.0350      0.027      1.281      0.200      -0.019       0.089
+Partner Conflict Management          -0.0116      0.012     -0.953      0.341      -0.035       0.012
+==============================================================================
+Omnibus:                       28.412   Durbin-Watson:                   2.034
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               22.201
+Skew:                          -0.221   Prob(JB):                     1.51e-05
+Kurtosis:                       2.571   Cond. No.                     1.01e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 9.79e-26. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+                              OLS Regression Results                              
+==================================================================================
+Dep. Variable:     Partner Wish for Touch   R-squared:                       0.255
+Model:                                OLS   Adj. R-squared:                  0.235
+Method:                     Least Squares   F-statistic:                     13.01
+Date:                    Thu, 24 Jul 2025   Prob (F-statistic):           1.65e-64
+Time:                            12:10:06   Log-Likelihood:                -1983.8
+No. Observations:                    1407   AIC:                             4042.
+Df Residuals:                        1370   BIC:                             4236.
+Df Model:                              36                                         
+Covariance Type:                nonrobust                                         
+=====================================================================================================
+                                        coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------
+const                                -1.4674      0.714     -2.055      0.040      -2.868      -0.067
+Anchor Difference of Touch         2.058e-15   1.71e-15      1.205      0.228   -1.29e-15    5.41e-15
+Partner Difference of Touch        5.321e-15    4.4e-15      1.209      0.227   -3.32e-15     1.4e-14
+Anchor Age                            0.0018      0.007      0.262      0.793      -0.012       0.015
+Anchor Work Status                    0.0245      0.047      0.519      0.604      -0.068       0.117
+Partner Age                          -0.0142      0.006     -2.407      0.016      -0.026      -0.003
+Partner Work Status                   0.0512      0.049      1.050      0.294      -0.044       0.147
+Anchor Extraversion                   0.0358      0.015      2.433      0.015       0.007       0.065
+Anchor Agreeableness                  0.0163      0.015      1.094      0.274      -0.013       0.045
+Anchor Conscientiousness              0.0149      0.014      1.083      0.279      -0.012       0.042
+Anchor Openness                      -0.0080      0.013     -0.615      0.539      -0.033       0.017
+Anchor Neuroticism                    0.0095      0.017      0.554      0.579      -0.024       0.043
+Anchor Conservatism                   0.0113      0.006      1.892      0.059      -0.000       0.023
+Partner Extraversion                  0.0239      0.014      1.724      0.085      -0.003       0.051
+Partner Agreeableness                 0.0278      0.015      1.874      0.061      -0.001       0.057
+Partner Conscientiousness            -0.0013      0.014     -0.098      0.922      -0.028       0.026
+Partner Openness                      0.0080      0.013      0.615      0.539      -0.017       0.033
+Partner Neuroticism                  -0.0286      0.017     -1.666      0.096      -0.062       0.005
+Partner Conservatism                 -0.0130      0.006     -2.197      0.028      -0.025      -0.001
+Anchor Depressiveness                 0.0240      0.025      0.952      0.341      -0.025       0.074
+Anchor Loneliness                     0.0032      0.035      0.093      0.926      -0.065       0.071
+Anchor Self-esteem                    0.0223      0.016      1.372      0.170      -0.010       0.054
+Anchor Life Satisfaction             -0.0326      0.022     -1.449      0.148      -0.077       0.012
+Anchor Health                         0.0021      0.043      0.048      0.961      -0.082       0.086
+Partner Depressiveness                0.0913      0.026      3.562      0.000       0.041       0.142
+Partner Loneliness                   -0.0192      0.038     -0.510      0.610      -0.093       0.055
+Partner Self-esteem                  -0.0186      0.017     -1.101      0.271      -0.052       0.015
+Partner Life Satisfaction             0.0314      0.024      1.334      0.182      -0.015       0.078
+Partner Health                        0.0300      0.041      0.733      0.464      -0.050       0.110
+Relationship Length                  -0.1148      0.034     -3.376      0.001      -0.181      -0.048
+Married                              -0.0993      0.076     -1.312      0.190      -0.248       0.049
+Cohabitation                          0.1509      0.113      1.334      0.182      -0.071       0.373
+Kids                                 -0.0490      0.035     -1.395      0.163      -0.118       0.020
+Anchor Communication Quality          0.0373      0.012      3.082      0.002       0.014       0.061
+Anchor Relationship Satisfaction      0.0366      0.029      1.279      0.201      -0.020       0.093
+Anchor Conflict Management           -0.0148      0.012     -1.217      0.224      -0.039       0.009
+Partner Communication Quality         0.0778      0.013      5.980      0.000       0.052       0.103
+Partner Relationship Satisfaction     0.1217      0.028      4.366      0.000       0.067       0.176
+Partner Conflict Management          -0.0018      0.012     -0.144      0.886      -0.026       0.023
+==============================================================================
+Omnibus:                       22.774   Durbin-Watson:                   1.919
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.253
+Skew:                          -0.198   Prob(JB):                     0.000109
+Kurtosis:                       2.607   Cond. No.                     1.01e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 9.79e-26. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
