@@ -671,6 +671,10 @@ label variable god "Importance of God"
 gen pgod = psd36_w2b if psd36_w2b > -1 // "Importance of God", missings = 13
 label variable pgod "Importance of God"
 
+
+
+**** Age of kid *****
+
 *-------------------------------------------------------------------------------
 **** Save separately (only cases with answers to the touch frequency questions)
 *-------------------------------------------------------------------------------
@@ -682,7 +686,7 @@ drop *_w1a
 drop *_w1b
 drop *_w2a
 
-outsheet age page workst pworkst sex psex samesex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur depr pdepr self pself health phealth consv god pgod pextr pagree pconsc popen pneur east peast degurba pdegurba married pconsv using outputdata.csv, comma
+outsheet age page workst pworkst sex psex samesex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur depr pdepr self pself health phealth consv god pgod pextr pagree pconsc popen pneur east peast degurba pdegurba married pconsv ykage_class_w2b using outputdata.csv, comma
 
 cd $path_data_all
 save W2B_com_t.dta, replace
