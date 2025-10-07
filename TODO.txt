@@ -1,0 +1,27 @@
+Calculate first all 6 possible outcomes and then relate them to potential predictors.
+
+So what happens when couples have different opinions about how much touch is appropriate?
+
+We asked both partners in over XYZ couples about their perceptions: 
+- How much touch do you receive from your partner, 
+- and how much would you like to receive?
+We then compared these answers with relationship satisfaction, personality variables, and relationship characteristics.
+
+The results show that in XYZ% of relationships, both partners are satisfied with the amount of touch: both receive as much touch as they would like. 
+However, there is also a substantial proportion where this is not the case: 
+	- In XY% of relationships, one partner wants more touch than they receive; 
+	- in XY%, one partner wants less touch; 
+	- in XY%, both want less touch; 
+	- in XY%, both want more; 
+	- and in XY%, one partner wants more while the other wants less. 
+The discrepancy between wanting and receiving was expecially strong in people who wanted more touch (as compared to those who wanted less touch). 
+
+In the next step, we compared these results with the predictors. For relationship characteristics, we averaged across both partners, while for all other variables, we considered the partners individually. As a reference group, we used couples in which both were satisfied with their frequency of touch.
+
+The findings show that:
+a) When one partner wants more touch, they tend to be less satisfied with the relationship and show higher levels of neuroticism. This also applies when both partners want more touch.
+b) When one partner wants less touch, they are significantly less satisfied with the relationship and tend to be more introverted.
+c) When both partners want less touch, the relationship is characterized by poor communication.
+d) When one partner wants more and the other less, relationship satisfaction is lowest.
+
+Additionally, we find that couples adapt to each other in their touching behavior as well as in their desire for touch over the course of the relationship. Accordingly, in long-term relationships there is generally less touch than in the honeymoon phase, but greater alignment between partners. Having children, however, tends to increase imbalance between desired and actual touch frequency, with mothers in particular reporting oversaturation.
