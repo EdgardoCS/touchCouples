@@ -14,7 +14,7 @@
 * Set path, upload data
 
 clear all
-global path_data_all `""C:\Users\silva\OneDrive - Friedrich-Schiller-Universität Jena\FReDA\OutputEN""'
+global path_data_all `""C:\Users\Edo\Documents\GitHub\touchCouples\Stata\data""'
 
 cd $path_data_all
 use W2B_com.dta, clear 
@@ -126,6 +126,36 @@ label define sexl 1 "Male" 2 "Female" 3 "Diverse" -2 "No answer", replace
 label value psex sexl
 
 tab psex, m
+
+**** 3. Education **************************************************************
+* Anchor data *
+* a. Highest school dregree 
+tab school_w2b, m // n = 26 missings
+
+* b. Vocational training/study 
+tab voctrain_w2b, m // n = 135 missings
+
+* c. Years of education
+tab educy_w2b, m // n = 156 missings
+
+* d. ISCED-11, International Standard Classification of Education
+tab isced11_w2b, m // n = 520 missings
+gen isced11 = isced11_w2b
+mvdecode isced11, mv(-10/-1)
+
+* Partner data *
+tab pschool_w2b, m // n = 26 missings
+
+* b. Vocational training/study 
+tab pvoctrain_w2b, m // n = 135 missings
+
+* c. Years of education
+tab peducy_w2b, m // n = 156 missings
+
+* d. ISCED-11, International Standard Classification of Education
+tab pisced11_w2b, m // n = 520 missings
+gen pisced11 = pisced11_w2b
+mvdecode pisced11, mv(-10/-1)
 
 
 **** 4. Work & employment ******************************************************
@@ -686,7 +716,7 @@ drop *_w1a
 drop *_w1b
 drop *_w2a
 
-outsheet age page workst pworkst sex psex samesex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur depr pdepr self pself health phealth consv god pgod pextr pagree pconsc popen pneur east peast degurba pdegurba married pconsv ykage_class_w2b using outputdata.csv, comma
+outsheet age page workst pworkst sex psex samesex reldur reldur_class cohab nkidsliv_class relsat prelsat relin prelint tf_kiss tf_hold tf_hug ptf_kiss ptf_hold ptf_hug omo15i1_w2b omo16i1_w2b omo17i1_w2b omo15i2_w2b omo16i2_w2b omo17i2_w2b pomo15i1_w2b pomo16i1_w2b pomo17i1_w2b pomo15i2_w2b pomo16i2_w2b pomo17i2_w2b agediff_class confm pconfm loneliness ploneliness lifsat plifsat extr agree consc open neur depr pdepr self pself health phealth consv god pgod pextr pagree pconsc popen pneur east peast degurba pdegurba married pconsv ykage_class_w2b pisced11 isced11 using outputdata.csv, comma
 
 cd $path_data_all
 save W2B_com_t.dta, replace
