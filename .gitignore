@@ -72,3 +72,7 @@ venv.bak/
 
 # Temp files
 ~$*
+
+# Illustrator files
+*.ai
+*.pdf
