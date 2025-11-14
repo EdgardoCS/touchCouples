@@ -42,7 +42,23 @@ four_cords3 = [
     "#009688",
 ]
 
-target_pal = four_cords2
+test6 = [
+    '#C4A000',
+    '#c1809e',
+    '#d7adc0',
+    '#26a59a',
+    '#73c5bd',
+    '#355C9C'
+]
+
+colours2 = ['#C4A000',
+            '#c1809e',
+            '#d7adc0',
+            '#26a59a',
+            '#73c5bd',
+            '#355C9C']
+
+target_pal = colours2
 
 sns.set_palette(target_pal)
 sns.palplot(target_pal)
