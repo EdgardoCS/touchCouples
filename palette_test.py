@@ -26,24 +26,23 @@ four_cords = [
     "#B76A8D",  # rose mauve (kept)
     "#009688",  # balanced teal (slightly brighter)
     "#C4A000",  # deeper gold, more luminance contrast
-    "#355C9C"   # slightly lighter indigo for improved differentiation
+    "#355C9C"  # slightly lighter indigo for improved differentiation
 ]
 
 four_cords2 = [
-    "#BDBDBD",
-    "#B76A8D",
-    "#009688",
-    "#355C9C"
+    "#c1809e", "#d7adc0", "#e9d2dd", "#f4e8ee",
+    "#26a59a", "#73c5bd", "#b3dfdb", "#d9efed",
+    "#5374ab", "#90a5c8"
 ]
 
 four_cords3 = [
-        "#C4A000",
-    "#BDBDBD",
+    "#C4A000",
+    "#355C9C",
+    "#B76A8D",
     "#009688",
-    "#355C9C"
 ]
 
-target_pal = four_cords3
+target_pal = four_cords2
 
 sns.set_palette(target_pal)
 sns.palplot(target_pal)
