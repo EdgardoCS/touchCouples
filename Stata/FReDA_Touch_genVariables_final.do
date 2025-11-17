@@ -250,7 +250,7 @@ label variable reldur "Relationship duration [years]"
 // hist reldur
 sum reldur
 
-recode reldur (0/2.99 = 1 "0-2") (3/5.99 = 2 "3-5") (6/10.99 = 3 "6-10") (11/20.99 = 4 "11-20") (21/50 = 5 "21+") (else =.), gen(reldur_class)
+recode reldur (0/2.99 = 1 "1") (3/5.99 = 2 "2") (6/10.99 = 3 "3") (11/20.99 = 4 "4") (21/50 = 5 "5") (else =.), gen(reldur_class)
 label variable reldur_class "Relationship duration [years]"
 tab reldur_class, m
 
@@ -350,7 +350,7 @@ tab nkidsliv_class, m
 
 * generate age classes
 
-recode ykage_w2b (0 1 = 1 "0-1") (2/5=2 "2-5") (6/13=3 "6-13") (14/17=4 "14-17") (18/50=5 "18+") (else=.), gen(ykage_class_w2b)
+recode ykage_w2b (0 1 = 1 "1") (2/5=2 "2") (6/13=3 "3") (14/17=4 "4") (18/50=5 "5") (else=.), gen(ykage_class_w2b)
 label variable ykage_class_w2b "Age of youngest child (classes)"
 
 tab ykage_class_w2b, m
