@@ -2,9 +2,9 @@
 * Wave 				: W2       
 * Subwave			: W2B
 * welle				: 5                                          
-* Author            : Yvonne Friedrich
-* Contributor		: Edgardo Silva
-* Analysis  		: FReDA Touch article (2)
+* Author            		: Yvonne Friedrich
+* Contributor			: Edgardo Silva
+* Analysis  			: FReDA Touch article (2)
 
 *-------------------------------------------------------------------------------
 * Content 			: Prepare data: Generate new variables, see descriptives
@@ -77,7 +77,6 @@ tab pomo17i2_w2b, m
 * Generate new variables and show descriptives
 *-------------------------------------------------------------------------------
 
-
 *-------------------------------------------------------------------------------
 * A. Sociodemographics 
 *-------------------------------------------------------------------------------
@@ -86,18 +85,18 @@ tab pomo17i2_w2b, m
 
 // Please check n=588 -> 51y., n = 27 -> 52y., n = 17 -> 53y., n=2 -> 17y., n=1 missing 
 * 		-> if age was invalid, age from registry was taken / n = 1
-* Anchor data *
+
+****** Anchor data ******
 gen age = age_w2b
 replace age = age_reg_w2b if age < 0 // if typos occured or the year was unvalid, age from the register is taken
 mvdecode age, mv(-10/-1) // define remaining missing values 
 label variable age "Corrected Age (ANCHOR)"
 
-* Partner data *
+****** Partner data ******
 gen page = page_w2b
 label variable page "Corrected Age (PARTNER)"
 
 sum age
-
 * generate age groups
 // Please note: 17y. are not in classes
 
@@ -108,27 +107,32 @@ tab age_class, m // n = 16 missings
 
 drop if age < 18 | age > 51
 
+tab age, m
+tab page, m
 
 **** 2. Sex ********************************************************************
+
 *        -> information from register if data was missing (n=1) -> male
-* Anchor data *
+****** Anchor data ******
 gen sex = sex_w2b 
 replace sex = sex_reg_w2b if sex_w2b < 0 // if subject did not respond, sex from register was taken
 label variable sex "Sex (ANCHOR)"
 label define sexl 1 "Male" 2 "Female" 3 "Diverse" -2 "No answer", replace
 label value sex sexl
 
-* Partner data *
+****** Partner data ******
 gen psex = psex_w2b
 replace psex = psexgen_w2b if psex_w2b == -2 // if subject did not respond, sex from register was taken
 label variable psex "Sex (PARTNER)"
 label define sexl 1 "Male" 2 "Female" 3 "Diverse" -2 "No answer", replace
 label value psex sexl
 
+tab sex, m
 tab psex, m
 
 **** 3. Education **************************************************************
-* Anchor data *
+
+****** Anchor data ******
 * a. Highest school dregree 
 tab school_w2b, m // n = 26 missings
 
@@ -143,7 +147,7 @@ tab isced11_w2b, m // n = 520 missings
 gen isced11 = isced11_w2b
 mvdecode isced11, mv(-10/-1)
 
-* Partner data *
+****** Partner data ******
 tab pschool_w2b, m // n = 26 missings
 
 * b. Vocational training/study 
@@ -157,10 +161,13 @@ tab pisced11_w2b, m // n = 520 missings
 gen pisced11 = pisced11_w2b
 mvdecode pisced11, mv(-10/-1)
 
+tab isced11, m
+tab pisced11, m
 
 **** 4. Work & employment ******************************************************
-* Anchor data *
-* 	a. Work situation (detail)
+
+****** Anchor data ******
+* a. Work situation (detail)
 gen work = lfstat_w2b if lfstat_w2b > 0
 label variable work "Labour force status (ANCHOR)"
 label define workl 1 "Education/vocational training" 2 "Parental leave" 3 "Homemaker" 4 "Unemployed" 5 "Military service/civic service" 6 "Retired/unfit for work" 7 "Working, full-time employed" 8 "Working, part-time employed" 9 "Working, marginal employed " 10 "Working, self-employed" 11 "Other", replace
@@ -169,77 +176,72 @@ tab work, m // n = 9 missings
 
 recode work (1 5 7 10 = 1 "Full time activity") (8 9 = 2 "Part-time activity") (2 3 4 6 = 3 "Home") (else=.), gen(workst)
 label variable workst "Work status (ANCHOR)"
-tab workst, m // n = 79 missings
 
-* 	b. Working hours
+* b. Working hours
 gen workh = job56_w2b if job56_w2b > 0 & job56_w2b <= 168
 label variable workh "Working hours per week"
-tab workh, m // n = 773 missings
 
-* Partner data *
-* 	a. Work situation (detail)
+****** Partner data ******
+* a. Work situation (detail)
 gen pwork = plfstat_w2b if plfstat_w2b > 0
 label variable pwork "Labour force status (PARTNER)"
 label define pworkl 1 "Education/vocational training" 2 "Parental leave" 3 "Homemaker" 4 "Unemployed" 5 "Military service/civic service" 6 "Retired/unfit for work" 7 "Working, full-time employed" 8 "Working, part-time employed" 9 "Working, marginal employed " 10 "Working, self-employed" 11 "Other", replace
 label values pwork pworkl
-tab pwork, m // n = 9 missings
 
 recode pwork (1 5 7 10 = 1 "Full time activity") (8 9 = 2 "Part-time activity") (2 3 4 6 = 3 "Home") (else=.), gen(pworkst)
 label variable pworkst "Work status (PARTNER)"
-tab pworkst, m // n = 79 missings
 
+tab workst, m 
+tab pworkst, m 
 
 **** 5. Migration background ***************************************************
 //(no update info collected in Wave 2)
 
+****** Anchor data ******
 gen migback = migback_w1b
 mvdecode migback, mv(-10/-1) // define remaining missing values 
 recode migback (3 = 0) // define "no migration background" as a reference
 label variable migback "Migration background"
 label define migbackl 1 "1st gen." 2 "2nd gen." 0 "None", replace
 label values migback migbackl
-tab migback, m // missings:  1,562 
+tab migback, m
 
 **** 6. Residential area *******************************************************
-* Anchor data *
-* 	a. Eastern Germany 
+****** Anchor data ******
+* a. Eastern Germany 
 gen east = east_w2b if east_w2b > -1
 label variable east "Residency (ANCHOR)"
 label define eastl 1 "East Germany" 0 "West Germany"
 label value east eastl
 
-tab east, m // n = 16 missings
-
-* 	b. Urbanisation
+* b. Urbanisation
 gen degurba = degurba_w2b if degurba_w2b > 0
 label variable degurba "Urbanisation (ANCHOR)"
 label define degurbal 1 "City" 2 "Town or suburb" 3 "Rural area"
 label value degurba degurbal
 
-tab degurba, m // n = 17 missing
+tab east, m
+tab degurba, m
 
-* Partner data *
-* 	a. Eastern Germany 
+****** Partner data ******
+* a. Eastern Germany 
 gen peast = peast_w2b if peast_w2b > -1
 label variable peast "Residency (PARTNER)"
 label define peastl 1 "East Germany" 0 "West Germany"
 label value peast peastl
 
-tab peast, m // n = 16 missings
-
-* 	b. Urbanisation
+* b. Urbanisation
 gen pdegurba = pdegurba_w2b if pdegurba_w2b > 0
 label variable pdegurba "Urbanisation (PARTNER)"
 label define pdegurbal 1 "City" 2 "Town or suburb" 3 "Rural area"
 label value pdegurba pdegurbal
 
-tab pdegurba, m // n = 17 missing
-
+tab peast, m 
+tab pdegurba, m 
 
 *-------------------------------------------------------------------------------
 * B. Relationship variables
 *-------------------------------------------------------------------------------
-* Anchor data *
 **** 1. Relationship duration **************************************************
 tab reldur_w2b, m // n = 152 missings
 
@@ -247,7 +249,6 @@ gen reldur = reldur_w2b if reldur_w2b > -1
 replace reldur = reldur/12 // transform to years
 label variable reldur "Relationship duration [years]" 
 
-// hist reldur
 sum reldur
 
 recode reldur (0/2.99 = 1 "1") (3/5.99 = 2 "2") (6/10.99 = 3 "3") (11/20.99 = 4 "4") (21/50 = 5 "5") (else =.), gen(reldur_class)
@@ -264,10 +265,10 @@ label variable sexp "Sex, partner"
 label define sexpl 		 1 "Male"  2 "Female"  3 "Diverse" , replace
 label value sexp sexpl
 
-tab sexp, m // n = 60 missings
+tab sexp, m
 
 * b. generate same sex variable
-tab samesex_w2b, m // n = 60 missings
+tab samesex_w2b, m
 
 gen samesex = samesex_w2b
 replace samesex = 1 if sex==sexp & inlist(sex, 1, 2) & inlist(sexp, 1, 2) & samesex < 0
@@ -307,7 +308,6 @@ label variable agediff_class "Age difference (classes)"
 
 tab agediff_class sex, m // n = 3 missings
 
-
 **** 4. Cohabitation ***********************************************************
 
 gen cohab = .
@@ -323,7 +323,8 @@ label value cohab cohabl
 tab cohab, m // n = 0 missings
 
 **** 5. Number of kids *********************************************************
-* Anchor data *
+
+****** Anchor data ******
 tab nkids_w2b, m // n = 7 missings
 gen nkids = nkids_w2b
 mvdecode nkids, mv(-10/-1) // define missing values
@@ -355,36 +356,23 @@ label variable ykage_class_w2b "Age of youngest child (classes)"
 
 tab ykage_class_w2b, m
 
-**** 8. Relationship quality index *********************************************
+**** 6. Relationship quality index *********************************************
+
+****** Anchor data ******
 // a lot of missing due to Aktualisierung Partner bpa1_w2b -> "trifft nicht zu" & relint = 0 ??
 
 * a. recode reverse items
 recode pa17i4_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(pa17i4_w2a_r)
-label variable pa17i4_w2a_r "[recoded] Häufigkeit in Partnerschaft: Ärgerlich oder wütend"
+label variable pa17i4_w2a_r "[recoded] Frequency in partnership: Annoyed or angry"
 recode pa17i6_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(pa17i6_w2a_r)
-label variable pa17i6_w2a_r "[recoded] Häufigkeit in Partnerschaft: Unterschiedliche Meinung, Streit"
+label variable pa17i6_w2a_r "[recoded] Frequency in partnership: Differences of opinion, arguments"
 
 * b. calculate sum score
 egen relint = rowtotal(pa17i1_w2a pa17i2_w2a pa17i4_w2a_r pa17i5_w2a pa17i6_w2a_r pa17i8_w2a) if pa17i1_w2a > 0 & pa17i2_w2a > 0 & pa17i4_w2a_r > 0 & pa17i5_w2a > 0 & pa17i6_w2a_r > 0 & pa17i8_w2a > 0 & (bpa1_w2b == 1 | bpa1_w2b == 4) // only if responses are complete & partner is the same for W2B
 recode relint 0 = .
 label variable relint "Relationship interaction index (W2A)"
 
-tab relint, m // n = 267 missings
-
-**** 9a. Conflict management ****************************************************
-// -> pos. = constructive // see above -> problem with missings
-
-* a. recode reverse items
-recode pa22ri12_w2a pa22ri9_w2a pa22ri1_w2a pa22ri11_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(pa22ri12_w2a_r pa22ri9_w2a_r pa22ri1_w2a_r pa22ri11_w2a_r)
-
-* calculate sum score
-egen confm = rowtotal(pa22ri12_w2a_r pa22ri10_w2a pa22ri8_w2a pa22ri9_w2a_r pa22ri1_w2a_r pa22ri11_w2a_r) if pa22ri12_w2a_r > 0 & pa22ri10_w2a > 0 & pa22ri8_w2a > 0 & pa22ri9_w2a_r > 0 & pa22ri1_w2a_r > 0 & pa22ri11_w2a_r > 0 & (bpa1_w2b == 1 | bpa1_w2b == 4) // only if responses are complete & partner is the same for W2B
-recode confm 0 = .
-label variable confm "Conflict management index (W2A)"
-
-tab confm, m // n = 274 missings
-
-* Partner data *
+****** Partner data ******
 * a. recode reverse items
 recode ppa17i4_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(ppa17i4_w2a_r)
 label variable ppa17i4_w2a_r "[recoded] Frequency in partnership: Annoyed or angry"
@@ -396,11 +384,22 @@ egen prelint = rowtotal(ppa17i1_w2a ppa17i2_w2a ppa17i4_w2a_r ppa17i5_w2a ppa17i
 recode prelint 0 = .
 label variable prelint "Relationship interaction index (W2A)"
 
-tab prelint, m // n = 267 missings
+tab relint,m
+tab prelint,m
 
-**** 9a. Conflict management ****************************************************
+**** 7. Conflict management ****************************************************
 // -> pos. = constructive // see above -> problem with missings
 
+****** Anchor data ******
+* a. recode reverse items
+recode pa22ri12_w2a pa22ri9_w2a pa22ri1_w2a pa22ri11_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(pa22ri12_w2a_r pa22ri9_w2a_r pa22ri1_w2a_r pa22ri11_w2a_r)
+
+* calculate sum score
+egen confm = rowtotal(pa22ri12_w2a_r pa22ri10_w2a pa22ri8_w2a pa22ri9_w2a_r pa22ri1_w2a_r pa22ri11_w2a_r) if pa22ri12_w2a_r > 0 & pa22ri10_w2a > 0 & pa22ri8_w2a > 0 & pa22ri9_w2a_r > 0 & pa22ri1_w2a_r > 0 & pa22ri11_w2a_r > 0 & (bpa1_w2b == 1 | bpa1_w2b == 4) // only if responses are complete & partner is the same for W2B
+recode confm 0 = .
+label variable confm "Conflict management index (W2A)"
+
+****** Partner data ******
 * a. recode reverse items
 recode ppa22ri12_w2a ppa22ri9_w2a ppa22ri1_w2a ppa22ri11_w2a (5=1) (4=2) (3=3) (2=4) (1=5), gen(ppa22ri12_w2a_r ppa22ri9_w2a_r ppa22ri1_w2a_r ppa22ri11_w2a_r)
 
@@ -409,18 +408,17 @@ egen pconfm = rowtotal(ppa22ri12_w2a_r ppa22ri10_w2a ppa22ri8_w2a ppa22ri9_w2a_r
 recode pconfm 0 = .
 label variable pconfm "Conflict management index (W2A)"
 
-tab pconfm, m // n = 274 missings
-
-**** 10. Thought about possible separation *************************************
+tab confm, m
+tab pconfm, m 
 
 *-------------------------------------------------------------------------------
 * C. Psych variables 
 *-------------------------------------------------------------------------------
 
-
 **** 1.a. Touch frequency index ************************************************
 *       -> mean of the three touch items from W2B
 
+****** Anchor data ******
 egen omotf = rowmean(omo15i1_w2b omo16i1_w2b omo17i1_w2b) if omo15i1_w2b > 0 & omo16i1_w2b > 0 & omo17i1_w2b > 0  // include complete cases only
 label variable omotf "Touch frequency index" 
 // hist omotf
@@ -441,6 +439,7 @@ label values tf_kiss tf_hold tf_hug tfl
 
 tab tf_kiss tf_hold, m
 
+****** Partner data ******
 clonevar ptf_kiss = pomo15i1_w2b
 clonevar ptf_hold = pomo16i1_w2b
 clonevar ptf_hug = pomo17i1_w2b
@@ -473,13 +472,13 @@ tab ptf_hug
 **** 2. Depressiveness index ***************************************************
 *       -> mean of the three depression items from W2B
 
+****** Anchor data ******
 egen depr = rowtotal(per21i2_w2b per21i4_w2b per21i5_w2b) if per21i2_w2b > 0 & per21i4_w2b > 0 & per21i5_w2b > 0 // exclude missings
 label variable depr "Depression total score W2B (3 items)"
 tab depr, m // n = 11 missings
 sum depr if depr > 0
-**** 2. Partner ***************************************************
 
-
+****** Partner data ******
 egen pdepr = rowtotal(pper21i2_w2b pper21i4_w2b pper21i5_w2b) if pper21i2_w2b > 0 & pper21i4_w2b > 0 & pper21i5_w2b > 0 // exclude missings
 label variable pdepr "Depression total score W2B (3 items)"
 tab pdepr, m // n = 11 missings
@@ -488,6 +487,7 @@ sum pdepr if pdepr > 0
 **** 3. Self esteem ************************************************************
 *       -> mean of 3 items from W2B
 
+****** Anchor data ******
 * a. recode Item 1 "Manchmal denke ich, dass ich wertlos bin."
 recode per1i2_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(per1i2_w2b_r)
 label variable per1i2_w2b_r "[recoded] Persönliche Wahrnehmung: Wertlos"
@@ -499,8 +499,8 @@ label variable self "Self esteem W2B (3 items)"
 
 tab self, m // n = 43 missings 
 sum self if self > 0
-**** 3. Partner ************************************************************
 
+****** Partner data ******
 * a. recode Item 1 "Manchmal denke ich, dass ich wertlos bin."
 recode pper1i2_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pper1i2_w2b_r)
 label variable pper1i2_w2b_r "[recoded] Persönliche Wahrnehmung: Wertlos"
@@ -515,17 +515,20 @@ sum pself if pself > 0
 
 **** 4. Loneliness *************************************************************
 
+****** Anchor data ******
 rename (per1i6_w2b) (loneliness)
 mvdecode loneliness, mv(-10/-1)
 tab loneliness, m // n = 12 missings
 // hist loneliness
 
+****** Partner data ******
 rename (pper1i6_w2b) (ploneliness)
 mvdecode ploneliness, mv(-10/-1)
 tab ploneliness, m // n = 12 missings
 
 **** 5.a/b/c Rename relationship satisfaction, life satisfaction, health index, marital status
 
+****** Anchor data ******
 rename (sat3_w2b sat6_w2b hlt32_w2b) (relsat lifsat bad_health)
 recode bad_health (5=1) (4=2) (3=3) (2=4) (1=5), gen(health)
 label variable health "General health"
@@ -550,8 +553,7 @@ label values married marriedl
 sum relsat if relsat > -1
 sum lifsat if lifsat > -1
 
-
-
+****** Partner data ******
 rename (psat3_w2b psat6_w2b phlt32_w2b) (prelsat plifsat pbad_health)
 recode pbad_health (5=1) (4=2) (3=3) (2=4) (1=5), gen(phealth)
 label variable phealth "General health"
@@ -573,6 +575,7 @@ sum plifsat if plifsat > -1
 **** 6. consvervative consvitudes *************************************************
 *       -> sum score of 7 items from W2B
 
+****** Anchor data ******
 * a. recode item 4, 5
 recode val1i14_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(val1i14_w2b_r)
 label variable val1i14_w2b_r "[recoded] Werte: Mutter-Kind-Beziehung bei berufstätiger Mutter"
@@ -593,10 +596,7 @@ label variable consv "Conservative attitudes about family life W2B (7 items)"
 sum consv if consv > -1
 tab consv, m // n = 75 missings
 
-
-**** 6. consvervative consvitudes PARTNER *************************************************
-*       -> sum score of 7 items from W2B
-
+****** Partner data ******
 * a. recode item 4, 5
 recode pval1i14_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pval1i14_w2b_r)
 label variable pval1i14_w2b_r "[recoded] Werte: Mutter-Kind-Beziehung bei berufstätiger Mutter"
@@ -618,6 +618,8 @@ label variable pconsv "Conservative attitudes about family life W2B (7 items)"
 //tab consv, m // n = 75 missings
 
 **** 7. BIG-5 ******************************************************************
+
+****** Anchor data ******
 * a. recode item 22, 27, 24, 28, 29, 32
 recode per3i22_w2b per3i24_w2b per3i27_w2b per3i28_w2b per3i29_w2b per3i32_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(per3i22_w2b_r per3i24_w2b_r per3i27_w2b_r per3i28_w2b_r per3i29_w2b_r per3i32_w2b_r) 
 
@@ -649,12 +651,11 @@ sum(consc)
 sum(open)
 sum(neur)
 
-**** 7. BIG-5 (PARTNER) ******************************************************************
+****** Partner data ******
 * a. recode item 22, 27, 24, 28, 29, 32
 recode pper3i22_w2b pper3i24_w2b pper3i27_w2b pper3i28_w2b pper3i29_w2b pper3i32_w2b (5=1) (4=2) (3=3) (2=4) (1=5), gen(pper3i22_w2b_r pper3i24_w2b_r pper3i27_w2b_r pper3i28_w2b_r pper3i29_w2b_r pper3i32_w2b_r) 
 
 * b. calculate sum scores
-
 * Extraversion(1)
 egen pextr = rowtotal(pper3i22_w2b_r pper3i26_w2b pper3i30_w2b) if pper3i22_w2b_r > 0 & pper3i26_w2b > 0 & pper3i30_w2b > 0
 label variable pextr "Extraversion"
@@ -681,34 +682,19 @@ sum(pconsc)
 sum(popen)
 sum(pneur)
 
-// hist extr
-// hist agree
-// hist consc
-// hist open
-// hist neur
-
-// tab extr, m // n = 26 missings
-// tab agree, m // n = 25 missings
-// tab consc, m // n = 29 missings
-// tab open, m // n = 57 missings
-// tab neur, m // n = 24 missings
-
 **** 8. Religion ******************************************************************
+
+****** Anchor data ******
 gen god = sd36_w2b if sd36_w2b > -1 // "Importance of God", missings = 13
 label variable god "Importance of God"
 
-**** 8. Partner ******************************************************************
+****** Partner data ******
 gen pgod = psd36_w2b if psd36_w2b > -1 // "Importance of God", missings = 13
 label variable pgod "Importance of God"
-
-
-
-**** Age of kid *****
 
 *-------------------------------------------------------------------------------
 **** Save separately (only cases with answers to the touch frequency questions)
 *-------------------------------------------------------------------------------
-* log close
 
 // delete all waves but W2B
 drop *_w1r
