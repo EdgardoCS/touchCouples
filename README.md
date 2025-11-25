@@ -11,7 +11,7 @@ Touch-related responses were collected alongside five broader data categories: s
 Our findings reveal a positive correlation between both received and desired touch frequency and relationship satisfaction. Touch frequency was also associated with higher relationship communication quality for both Anchor and Partner. Notably, a negative correlation can be observed between touch frequency and relationship duration, which appears to be influenced by participant age.
 These results emphasize the critical role of affectionate touch in maintaining relationship health and underscore the importance of considering both partners’ touch experiences in relationship research. 
 
-![](C:\Users\silva\Documents\GitHub\touchCouples\source\img\divergence2.png "Satisfaction among couples")
+![](source\img\divergence2.png "Satisfaction among couples")
 
 ### References
 
