@@ -60,6 +60,19 @@ colours2 = ['#C4A000',
 
 target_pal = colours2
 
-sns.set_palette(target_pal)
-sns.palplot(target_pal)
+import matplotlib.colors as mcolors
+import numpy as np
+
+hex_color = "#26A59A"   # or any color you want
+
+rgb = mcolors.to_rgb(hex_color)
+
+alphas = np.linspace(0.15, 1.0, 7)   # 7-step palette from faint → solid
+
+palette = [(rgb[0], rgb[1], rgb[2], a) for a in alphas]
+
+
+
+sns.set_palette(palette)
+sns.palplot(palette)
 plt.show()
